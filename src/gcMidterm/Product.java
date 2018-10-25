@@ -10,7 +10,6 @@ public class Product {
 	public Product() {}
 	
 	public Product(String name, String category, String description, double price) {
-		super();
 		this.name = name;
 		this.description = description;
 		this.category = category;
@@ -54,6 +53,7 @@ public class Product {
 		return "Product [name=" + name + ", category=" + category + ", description=" + description + ", price=" + price
 				+ "]";
 	}
+	
 	
 	
 
