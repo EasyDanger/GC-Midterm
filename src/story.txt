@@ -3,8 +3,8 @@ And I'd like to
 take a minute
 to say hi, 
 how ya' doin'? Getting enough rest? How're the kids? How's ya' mother? Say hi to her for me.
-<<<<<<< HEAD
+
 This got out of hand, quickly.
-=======
+
 heyyyyyyy
->>>>>>> 770d164250ac3b0756f5f1654e41f9ec5fa55ded
+
