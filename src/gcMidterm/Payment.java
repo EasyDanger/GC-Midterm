@@ -36,12 +36,10 @@ public class Payment {
 		System.out.println("CVV?");
 		String userCVV = scnr.nextLine();
 		
-		if (userCC.matches("\\d{4}\\-\\d{4}\\-\\d{4}\\-\\d{4}")) {
-			if (userExpiration.matches("\\d{2}\\/\\d{2}")) {
-				if (userCVV.matches("\\d{3}")) {
+		if (userCC.matches("\\d{4}\\-\\d{4}\\-\\d{4}\\-\\d{4}") 
+				&& userExpiration.matches("\\d{2}\\/\\d{2}")
+				&& userCVV.matches("\\d{3}")) {
 					return true;
-				}
-			}
 		}
 		else return false;
 
