@@ -19,6 +19,7 @@ public class Payment {
 
 	private static boolean getCheck(String check) {
 		Scanner scnr = new Scanner(System.in);
+		
 		System.out.println("What is your check number?");
 		String checkNumber = scnr.nextLine();
 		if (checkNumber.matches("\\d+")) {
@@ -29,10 +30,13 @@ public class Payment {
 	}
 	private static boolean getCredit(String credit) {
 		Scanner scnr = new Scanner(System.in);
-		System.out.println("What is your cc number?");
+		
+		System.out.println("What is your cc number? (xxxx-xxxx-xxxx-xxxx");
 		String userCC = scnr.nextLine();
-		System.out.println("Experation?");
+		
+		System.out.println("Expiration? (mm/dd)");
 		String userExpiration = scnr.nextLine();
+		
 		System.out.println("CVV?");
 		String userCVV = scnr.nextLine();
 		
