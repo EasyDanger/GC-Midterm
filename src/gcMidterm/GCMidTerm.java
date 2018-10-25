@@ -3,6 +3,7 @@ package gcMidterm;
 import java.util.Scanner;
 
 public class GCMidTerm {
+
 	public static boolean finished;
 	static Scanner read = new Scanner(System.in);
 	public static void main (String[] arg) {
@@ -37,5 +38,4 @@ public class GCMidTerm {
 		// TODO Auto-generated method stub
 		
 	}
-
 }
