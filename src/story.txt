@@ -1,39 +1,38 @@
-This is a story all about how my life got flipped, turned upsidedown.
-This is a story all about how my life got flipped, turned upsidedown.
-This is a story all about how my life got flipped, turned upsidedown.
-This is a story all about how my life got flipped, turned upsidedown.
-This is a story all about how my life got flipped, turned upsidedown.
-This is a story all about how my life got flipped, turned upsidedown.
-This is a story all about how my life got flipped, turned upsidedown.
-This is a story all about how my life got flipped, turned upsidedown.
-This is a story all about how my life got flipped, turned upsidedown.
-This is a story all about how my life got flipped, turned upsidedown.
-This is a story all about how my life got flipped, turned upsidedown.
-This is a story all about how my life got flipped, turned upsidedown.
-This is a story all about how my life got flipped, turned upsidedown.
-This is a story all about how my life got flipped, turned upsidedown.
-
-
-
-
-
-
-
-
-
 <<<<<<< HEAD
-=======
+This is a story all about how my life got flipped, turned upsidedown.
+This is a story all about how my life got flipped, turned upsidedown.
+This is a story all about how my life got flipped, turned upsidedown.
+This is a story all about how my life got flipped, turned upsidedown.
+This is a story all about how my life got flipped, turned upsidedown.
+This is a story all about how my life got flipped, turned upsidedown.
+This is a story all about how my life got flipped, turned upsidedown.
+This is a story all about how my life got flipped, turned upsidedown.
+This is a story all about how my life got flipped, turned upsidedown.
+This is a story all about how my life got flipped, turned upsidedown.
+This is a story all about how my life got flipped, turned upsidedown.
+This is a story all about how my life got flipped, turned upsidedown.
+This is a story all about how my life got flipped, turned upsidedown.
+This is a story all about how my life got flipped, turned upsidedown.
+
+
+
+
+
+
+
+
+
+
 This got out of hand, quickly.
 heyyyyyyy
 
 1 +1 * 2 +8 
 
 This got out of hand, quickly.
->>>>>>> de204c4f4fb62d11e691ed770cbbe61cc08cf367
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
+
 
 
 This is a story all about how my life got flipped, turned upsidedown.
@@ -55,15 +54,14 @@ This is a story all about how my life got flipped, turned upsidedown.
 This is a story all about how my life got flipped, turned upsidedown.
 This is a story all about how my life got flipped, turned upsidedown.
 This is a story all about how my life got flipped, turned upsidedown.
-=======
+
 #team3
 This is a story all about how life is awesome
 And I'd like to 
 take a minute
 to say hi, 
 how ya' doin'? Getting enough rest? How're the kids? How's ya' mother? Say hi to her for me.
-=======
->>>>>>> f051854098e3d5469b0e281097b7ddeefca4d230
+
 
 This got out of hand, quickly.
 
@@ -76,4 +74,6 @@ heyyyyyyy
 qew[o
 
 
->>>>>>> de204c4f4fb62d11e691ed770cbbe61cc08cf367
+
+The quick brown fox jumped over the lazy dog.
+
