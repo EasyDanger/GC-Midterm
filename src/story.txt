@@ -21,9 +21,19 @@ This is a story all about how my life got flipped, turned upsidedown.
 
 
 
+<<<<<<< HEAD
+=======
+This got out of hand, quickly.
+heyyyyyyy
 
 
 
+This got out of hand, quickly.
+>>>>>>> de204c4f4fb62d11e691ed770cbbe61cc08cf367
+
+
+<<<<<<< HEAD
+
 
 This is a story all about how my life got flipped, turned upsidedown.
 This is a story all about how my life got flipped, turned upsidedown.
@@ -44,3 +54,24 @@ This is a story all about how my life got flipped, turned upsidedown.
 This is a story all about how my life got flipped, turned upsidedown.
 This is a story all about how my life got flipped, turned upsidedown.
 This is a story all about how my life got flipped, turned upsidedown.
+=======
+#team3
+This is a story all about how life is awesome
+And I'd like to 
+take a minute
+to say hi, 
+how ya' doin'? Getting enough rest? How're the kids? How's ya' mother? Say hi to her for me.
+
+This got out of hand, quickly.
+heyyyyyyy
+
+
+
+This got out of hand, quickly.
+
+heyyyyyyy
+
+#team3
+
+
+>>>>>>> de204c4f4fb62d11e691ed770cbbe61cc08cf367
