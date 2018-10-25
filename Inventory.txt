@@ -1,12 +1,12 @@
-Cappucino	3	Drink		Dark, rich espresso under a thick layer of foam.
-Americano	3	Drink	Espresso shots topped with hot water with a light layer of crema.
+Cappucino	3.00	Drink	Dark, rich espresso under a thick layer of foam.
+Americano	3.00	Drink	Espresso shots topped with hot water with a light layer of crema.
 Espresso	3.50	Drink	Signanture espresso roast with rich flavor and caramelly sweetness.
 Flat White	4.50	Drink	Bold ristretto shots of espresso and steamed whole milk.
-Macchiato	4	Drink	Rich espresso marked with dollop of steamed milk and foam.
+Macchiato	4.00	Drink	Rich espresso marked with dollop of steamed milk and foam.
 Mocha		3.75	Drink	Bittersweet mocha sauce, espresso and steamed whole milk topped with foam.
-Latte		4	Drink	Espresso with classis espresso shots poured over lightly aerated milk.
+Latte		4.00	Drink	Espresso with classis espresso shots poured over lightly aerated milk.
 Hot Chocolate	2.50	Drink	Steamed milk with vanilla and mocha flavored syrups. Topped with whipped cream.
-Bacon, Egg & Cheese	3	Food	Thick cut bacon stacked with a fluffy egg and creamy melted cheddar cheese in between our signature croissant.
+Bacon, Egg & Cheese	3.00	Food	Thick cut bacon stacked with a fluffy egg and creamy melted cheddar cheese in between our signature croissant.
 Croissant	4.25	Food	Classic croissant is made with 100 percent butter to create a golden, crunchy top and soft, flakey layers inside.	
 Chicken Caprese 	5.50	Food	Stacked with chicken, mozzarella, tomatoes, basil pesto and spinach all nestled in ciabatta bread. 
 Blueberry Oatmeal 	3.75	Food	A blend of rolled and steel cut oats with blueberries and agave syrup.

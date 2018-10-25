@@ -30,7 +30,7 @@ public class ProductFile {
 			List<String> lines = Files.readAllLines(filePath);
 			List<Product> products = new ArrayList<>();
 			for (String line : lines) {
-				String[] parts = line.split("~~~");
+				String[] parts = line.split("[\t]+");
 				Product p = new Product();
 				p.setName(parts[0]);
 				p.setPrice(Double.parseDouble(parts[1]));

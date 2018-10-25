@@ -3,6 +3,7 @@ package gcMidterm;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.Scanner;
 
 public class GCMidTermApp {
@@ -12,8 +13,10 @@ public class GCMidTermApp {
 	public static Path filePath = Paths.get("Inventory.txt");
 	public static void main (String[] arg) throws IOException {
 		ProductFile.fileExist(filePath);
-
-		System.out.println(ProductFile.read(filePath));
+		List<Product> pList = ProductFile.read(filePath);
+		for (Product product : pList) {
+			System.out.println(product);
+		}
 
 		do {
 			System.out.println("1. Add\nAdd an item to the customer's order");
