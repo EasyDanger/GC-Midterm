@@ -2,7 +2,7 @@ package gcMidterm;
 
 import java.util.Scanner;
 
-public class GCMidTerm {
+public class GCMidTermApp {
 
 	public static boolean finished;
 	static Scanner read = new Scanner(System.in);
@@ -19,6 +19,7 @@ public class GCMidTerm {
 			}
 			else if (menuChoice.equalsIgnoreCase("2")||menuChoice.equalsIgnoreCase("remove")) {
 				remove();
+				finished = Vali.checkYes(Vali.getString(read, "Would you like to add another item?"));
 				}
 			else if (menuChoice.equalsIgnoreCase("3")||menuChoice.equalsIgnoreCase("checkout")){
 				checkout();
