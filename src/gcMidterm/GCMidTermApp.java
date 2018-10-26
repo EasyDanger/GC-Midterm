@@ -20,6 +20,11 @@ public class GCMidTermApp {
 		for (Product product : pList) {
 			System.out.println(product);
 		}
+//Additional things to consider:
+		// method to sort menu list by drinks or food.?
+		// coupon codes? (stolen form other group. Consider something else)
+		// Separate list of "specials"?
+		// gift cards?
 
 		do {
 			System.out.println("1. Add\nAdd an item to the customer's order");
@@ -49,7 +54,8 @@ public class GCMidTermApp {
 	}
 
 	private static void create() {
-
+		// Copy country creation method from previous lab, change names of variables and
+		// add the forth attribute. Account for the difference in types.
 	}
 
 	// Still need to display the bill. Account for tips. Maybe an option to go back
@@ -114,12 +120,15 @@ public class GCMidTermApp {
 	}
 
 	private static void remove() {
-		// TODO Auto-generated method stub
+		// Should be able to simply call an item in the bill list and remove it.
+		// Must display bill list before that can happen.
 
 	}
 
 	private static void add() {
-		// TODO Auto-generated method stub
+		// Should be able to simply call the index of an item in the pList list and add
+		// it to the bill list.
+		// Maybe display pList again?
 
 	}
 }
