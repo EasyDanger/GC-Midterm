@@ -1,14 +1,14 @@
 package gcMidterm;
 
-public class Product implements Comparable<Product>{
+public class Product implements Comparable<Product> {
 	private String name;
 	private String category;
 	private String description;
 	private double price;
-	
-	
-	public Product() {}
-	
+
+	public Product() {
+	}
+
 	public Product(String name, String category, String description, double price) {
 		this.name = name;
 		this.description = description;
@@ -58,6 +58,8 @@ public class Product implements Comparable<Product>{
 		return name.compareTo(other.name);
 	}
 
-
+	public boolean checkName(String s) {
+		return this.name.equals(s);
+	}
 
 }

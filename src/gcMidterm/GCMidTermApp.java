@@ -16,24 +16,28 @@ public class GCMidTermApp {
 
 	public static void main(String[] arg) throws IOException {
 		
+		
+		
 		ProductFile.fileExist(filePath);
-		List<Product> pList = ProductFile.read(filePath);
+		List<Product> menuList = ProductFile.read(filePath);
 			Product product2 = new Product();
 			product2.setName("Mocha");
 			product2.setPrice(3.75);
 			product2.setCategory("Drink");
 			product2.setDescription("Bittersweet mocha sauce, espresso and steamed whole milk topped with foam.");
 			
-		for (Product listProd: pList) {
+		for (Product listProd: menuList) {
 
 			if (listProd == product2) {
 				System.out.println("this works!!");
 			}
 		}
 		
-		for (Product product : pList) {
+		for (Product product : menuList) {
 			System.out.println(product);
 		}
+		
+		menuList.indexOf("Latte");
 //Additional things to consider:
 		// method to sort menu list by drinks or food.?
 		// coupon codes? (stolen form other group. Consider something else)
@@ -49,12 +53,18 @@ public class GCMidTermApp {
 			if (menuChoice.equalsIgnoreCase("1") || menuChoice.equalsIgnoreCase("add")) {
 				System.out.println("What item would you like to add?");
 				String itemAdded = read.nextLine();
-				Bill.addProduct(pList, itemAdded);
+				
+				
+				
+				menuList.indexOf(itemAdded);
+				
+				
+			//	Bill.addProduct(menuList, menuList.indexOf(itemAdded));
 				finished = Vali.checkYes(Vali.getString(read, "Would you like to add another item?"));
 			} else if (menuChoice.equalsIgnoreCase("2") || menuChoice.equalsIgnoreCase("remove")) {
 				System.out.println("What item would you like to remove?");
 				String removeItem = read.nextLine();
-				Bill.removeProduct(pList, removeItem);
+			//	Bill.removeProduct(menuList, removeItem);
 				finished = Vali.checkYes(Vali.getString(read, "Would you like to add another item?"));
 			} else if (menuChoice.equalsIgnoreCase("3") || menuChoice.equalsIgnoreCase("checkout")) {
 				checkout();
