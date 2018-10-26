@@ -1,6 +1,6 @@
 package gcMidterm;
 
-public class Product {
+public class Product implements Comparable{
 	private String name;
 	private String category;
 	private String description;
@@ -53,7 +53,10 @@ public class Product {
 		return "$" + price + "\t" + name + "\t" + description;
 	}
 	
-	
+	public int compareTo(Product other) {
+		// TODO Auto-generated method stub
+		return name.compareTo(other.name);
+	}
 	
 
 }
