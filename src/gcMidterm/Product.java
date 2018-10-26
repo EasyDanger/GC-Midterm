@@ -59,7 +59,7 @@ public class Product implements Comparable<Product> {
 	}
 
 	public boolean checkName(String s) {
-		return this.name.equals(s);
+		return name.equals(s);
 	}
 
 }

@@ -37,7 +37,6 @@ public class GCMidTermApp {
 			System.out.println(product);
 		}
 		
-		menuList.indexOf("Latte");
 //Additional things to consider:
 		// method to sort menu list by drinks or food.?
 		// coupon codes? (stolen form other group. Consider something else)
@@ -54,11 +53,9 @@ public class GCMidTermApp {
 				System.out.println("What item would you like to add?");
 				String itemAdded = read.nextLine();
 				
-				
-				
-				menuList.indexOf(itemAdded);
-				
-				
+				bill = Bill.addProduct(menuList, bill, itemAdded);
+			
+				System.out.println("this is the bill " + bill);
 			//	Bill.addProduct(menuList, menuList.indexOf(itemAdded));
 				finished = Vali.checkYes(Vali.getString(read, "Would you like to add another item?"));
 			} else if (menuChoice.equalsIgnoreCase("2") || menuChoice.equalsIgnoreCase("remove")) {

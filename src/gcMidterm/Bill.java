@@ -5,16 +5,15 @@ import java.util.List;
 public class Bill {
 	
 	
-	public static List<Product> addProduct(List<Product> products, Product product) {
-		
+	public static List<Product> addProduct(List<Product> products, List<Product> bill, String str) {
 		for (Product listProd: products) {
-			if (listProd.equals(product)) {
+			if (listProd.checkName(str)) {
 				System.out.println("this works!!");
+				bill.add(listProd);		
 			}
 		}
-		products.add(product);
-		
-		return products;
+	
+		return bill;
 		
 	}
 	
