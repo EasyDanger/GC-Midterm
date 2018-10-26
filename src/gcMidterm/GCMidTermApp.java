@@ -15,8 +15,22 @@ public class GCMidTermApp {
 	public static Path filePath = Paths.get("Inventory.txt");
 
 	public static void main(String[] arg) throws IOException {
+		
 		ProductFile.fileExist(filePath);
 		List<Product> pList = ProductFile.read(filePath);
+			Product product2 = new Product();
+			product2.setName("Mocha");
+			product2.setPrice(3.75);
+			product2.setCategory("Drink");
+			product2.setDescription("Bittersweet mocha sauce, espresso and steamed whole milk topped with foam.");
+			
+		for (Product listProd: pList) {
+
+			if (listProd == product2) {
+				System.out.println("this works!!");
+			}
+		}
+		
 		for (Product product : pList) {
 			System.out.println(product);
 		}
