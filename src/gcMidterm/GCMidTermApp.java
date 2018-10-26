@@ -128,6 +128,11 @@ public class GCMidTermApp {
 				System.out.println("Thank you ... for paying ... with a check ... I guess?");
 				finished = true;
 			}
+			else if (menuChoice.equalsIgnoreCase("4") || menuChoice.equalsIgnoreCase("Apple Pay")) {
+                Payment.getApplePay();
+                System.out.println("Thank you for your purchase.");
+                finished = true;
+            }
 			// loops if user screws up the menu.
 			else {
 				System.out.println("Sorry, we didn't get that. Let's try again.");
