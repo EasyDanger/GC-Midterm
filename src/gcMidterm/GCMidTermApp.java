@@ -47,10 +47,14 @@ public class GCMidTermApp {
 			System.out.println("4. Create\nCreate a new menu item");
 			String menuChoice = read.nextLine();
 			if (menuChoice.equalsIgnoreCase("1") || menuChoice.equalsIgnoreCase("add")) {
-				add();
+				System.out.println("What item would you like to add?");
+				String itemAdded = read.nextLine();
+				Bill.addProduct(pList, itemAdded);
 				finished = Vali.checkYes(Vali.getString(read, "Would you like to add another item?"));
 			} else if (menuChoice.equalsIgnoreCase("2") || menuChoice.equalsIgnoreCase("remove")) {
-				remove();
+				System.out.println("What item would you like to remove?");
+				String removeItem = read.nextLine();
+				Bill.removeProduct(pList, removeItem);
 				finished = Vali.checkYes(Vali.getString(read, "Would you like to add another item?"));
 			} else if (menuChoice.equalsIgnoreCase("3") || menuChoice.equalsIgnoreCase("checkout")) {
 				checkout();
@@ -133,11 +137,11 @@ public class GCMidTermApp {
 
 	}
 
-	private static void remove() {
+	//private static void remove() {
 		// Should be able to simply call an item in the bill list and remove it.
 		// Must display bill list before that can happen.
 
-	}
+	//}
 
 	private static void add() {
 		// Should be able to simply call the index of an item in the pList list and add
