@@ -34,7 +34,7 @@ public class GCMidTermApp {
 			int i = 0;
 			for (Product product : menuList) {
 				i++;
-				System.out.println(i + ". " +  product);
+				System.out.println(String.format("%-4s%s", i + ". ", product));
 			}
 			// Menu display for user interfacing.
 			System.out.println("\n1. Add						2.Remove"
