@@ -10,3 +10,4 @@ Bacon, Egg & Cheese	3.00	Food	Thick cut bacon stacked with a fluffy egg and crea
 Croissant	4.25	Food	Classic croissant is made with 100 percent butter to create a golden, crunchy top and soft, flakey layers inside.	
 Chicken Caprese 	5.50	Food	Stacked with chicken, mozzarella, tomatoes, basil pesto and spinach all nestled in ciabatta bread. 
 Blueberry Oatmeal 	3.75	Food	A blend of rolled and steel cut oats with blueberries and agave syrup.
+Cough Syrup	15.0	drink	Cough syrup is a placeholder item I'm using to test the create item feature.

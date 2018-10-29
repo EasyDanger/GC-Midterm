@@ -55,20 +55,26 @@ public class GCMidTermApp {
 				
 				bill = Bill.addProduct(menuList, bill, itemAdded);
 			
-				System.out.println("this is the bill " + bill);
+				System.out.println("This is the bill " + bill);
 			//	Bill.addProduct(menuList, menuList.indexOf(itemAdded));
-				finished = Vali.checkYes(Vali.getString(read, "Would you like to add another item?"));
+				finished = Vali.checkYes(Vali.getString(read, "Are you ready to checkout?"));
+				 if (finished) {
+					 checkout();
+				 }
 			} else if (menuChoice.equalsIgnoreCase("2") || menuChoice.equalsIgnoreCase("remove")) {
 				System.out.println("What item would you like to remove?");
 				String itemRemoved = read.nextLine();
 				bill = Bill.removeProduct(menuList, bill, itemRemoved);				
-				finished = Vali.checkYes(Vali.getString(read, "Would you like to add another item?"));
+				finished = Vali.checkYes(Vali.getString(read, "Are you ready to checkout?"));
+				 if (finished) {
+					 checkout();
+				 }
 			} else if (menuChoice.equalsIgnoreCase("3") || menuChoice.equalsIgnoreCase("checkout")) {
 				checkout();
 				finished = true;
 			} else if (menuChoice.equalsIgnoreCase("4") || menuChoice.equalsIgnoreCase("create")) {
 				create();
-				finished = Vali.checkYes(Vali.getString(read, "Are you finished with this POS?"));
+				finished = Vali.checkYes(Vali.getString(read, "Are you ready to checkout?"));
 			} else {
 				System.out.println("Sorry, we didn't get that. Let's try again.\n\n");
 				finished = false;
@@ -78,9 +84,16 @@ public class GCMidTermApp {
 		read.close();
 	}
 
-	private static void create() {
+	private static void create() throws IOException {
 		// Copy country creation method from previous lab, change names of variables and
 		// add the forth attribute. Account for the difference in types.
+		String newProductName = Vali.getString(read, "What item would you like to add?"); 	
+		Product newProduct = new Product();
+			newProduct.setName(newProductName);
+			newProduct.setCategory(Vali.getString(read, "Is " + newProductName + " a food or drink item?"));
+			newProduct.setPrice(Vali.getDouble(read, "How much does " + newProductName + " cost?"));
+			newProduct.setDescription(Vali.getString(read, "Describe " + newProductName + "."));
+			ProductFile.writeApp(filePath, newProduct);
 	}
 
 	// Still need to display the bill. Account for tips. Maybe an option to go back
