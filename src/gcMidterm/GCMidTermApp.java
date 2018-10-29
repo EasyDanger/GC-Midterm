@@ -117,7 +117,7 @@ public class GCMidTermApp {
 		do {
 			// smashed menu to one line.
 			String menuChoice = Vali.getString(read,
-					"Pay by: \n1. Cash.\n2. Credit (Debit)\n3. Check? Seriously, A check?");
+					"Pay by: \n1. Cash.\n2. Credit (Debit)\n3. Apple Pay\n4. Check? Seriously, A check?");
 			// calls the getCash method for cash choice. Serves it the actual total and
 			// receives change. Should be able to handle insufficient funds.
 			if (menuChoice.equalsIgnoreCase("1") || menuChoice.equalsIgnoreCase("cash")) {
