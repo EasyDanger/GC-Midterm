@@ -17,16 +17,17 @@ public class Bill {
 		
 	}
 	
-	public static List<Product> removeProduct(List<Product> products, Product product) {
+	public static List<Product> removeProduct(List<Product> products, List<Product> bill, String str) {
 		
 		for (Product listProd: products) {
-			if (listProd.equals(product)) {
+			if (listProd.checkName(str)) {
 				System.out.println("removed from list!");
+				bill.remove(listProd);
 			}
 		}
-		products.remove(product);
 		
-		return products;
+		
+		return bill;
 		
 	}
 
