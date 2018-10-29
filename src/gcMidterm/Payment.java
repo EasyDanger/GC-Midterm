@@ -45,7 +45,13 @@ public class Payment {
 		} else {
 			return false;
 		}
+	}
+		
+	public static boolean getApplePay() {
+		return true;
+	}
+	
 
 	}
 
-}
+
