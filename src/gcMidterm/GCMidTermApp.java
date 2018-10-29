@@ -30,8 +30,9 @@ public class GCMidTermApp {
 			List<Product> menuList = ProductFile.read(filePath);
 			// Calls the sorting method form the Sort class to keep menu organized.
 			menuList = Sort.sortByAlpha(menuList);
-			// Prints out the menu item by item.
+			// variable to add a number to menu items for ordering later.
 			int i = 0;
+			// Prints out each menu item in sequence.
 			for (Product product : menuList) {
 				i++;
 				System.out.println(String.format("%-4s%s", i + ". ", product));
@@ -41,16 +42,33 @@ public class GCMidTermApp {
 					+ "\nAdd an item to the customer's order		Remove an item from the customer's order");
 			System.out.println("\n3. Checkout					4. Create"
 					+ "\nGo to checkout and review entire order		Create a new menu item");
+			// Variable to accept user Input from the menu.
 			String menuChoice = read.nextLine();
+			// If-else statements parse userinput to make menu choice. Accepts menu number
+			// or keyword.
 			if (menuChoice.equalsIgnoreCase("1") || menuChoice.equalsIgnoreCase("add")) {
+				// indexChoice is where the menu item integer will be stored if user enters
+				// number to choose menu item.
 				int indexChoice;
 				System.out.println("What item would you like to add?");
+				// itemAdded stores user input.
 				String itemAdded = read.nextLine();
+				// statement checks whether user input is an integer.
 				if (itemAdded.matches("\\d+")) {
 					indexChoice = Integer.parseInt(itemAdded);
 					bill = Bill.addProduct(menuList, bill, menuList.get(indexChoice - 1).getName());
 				} else {
-					bill = Bill.addProduct(menuList, bill, itemAdded);
+					int j = 0;
+					for (Product product : menuList) {
+						
+						if (product.getName().equalsIgnoreCase(itemAdded)) {
+							j++;
+							bill = Bill.addProduct(menuList, bill, itemAdded);
+						}
+					}
+					if (j != 1) {
+						System.out.println("Sorry, that item isn't on the menu. Please choose another.");
+					}
 				}
 				System.out.println("Current bill:");
 				for (Product product : bill) {
