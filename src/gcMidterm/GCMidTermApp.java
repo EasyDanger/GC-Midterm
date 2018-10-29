@@ -12,7 +12,7 @@ public class GCMidTermApp {
 //Boolean used to control while looping.
 	public static boolean finished;
 	// bill variable lists items added to customer's invoice.
-	static List<Product> bill = new ArrayList<>();
+
 	// A scanner!!!
 	static Scanner read = new Scanner(System.in);
 	// Variable to store the location of the complete menu list text file.
@@ -21,10 +21,12 @@ public class GCMidTermApp {
 	static DecimalFormat df = new DecimalFormat("0.00");
 
 	public static void main(String[] arg) throws IOException {
+		do {
+		List<Product> bill = new ArrayList<>();
 		// Do-while loop for the menu.
 		do {
 			// Header for menu aesthetics.
-			String header = "\n\n=============================== menu ==================================";
+			String header = "\n\n=============================== coffee® menu ==================================";
 			System.out.println(header);
 			// Creates the menu from the text file.
 			List<Product> menuList = ProductFile.read(filePath);
@@ -53,36 +55,36 @@ public class GCMidTermApp {
 				System.out.println("What item would you like to add?");
 				// itemAdded stores user input.
 				String itemAdded = read.nextLine();
-				// statement checks whether user input is an integer.
+				// statement checks whether user input is an integer. If it is, it adds that item's index to the bill.
 				if (itemAdded.matches("\\d+")) {
 					indexChoice = Integer.parseInt(itemAdded);
 					bill = Bill.addProduct(menuList, bill, menuList.get(indexChoice - 1).getName());
 				} else {
-					int j = 0;
+					//boolean will return false if item is not on menu. Otherwise, will return true and add item to bill.
+					boolean onMenu = false;
 					for (Product product : menuList) {
-						
 						if (product.getName().equalsIgnoreCase(itemAdded)) {
-							j++;
+							onMenu = product.getName().equalsIgnoreCase(itemAdded);
 							bill = Bill.addProduct(menuList, bill, itemAdded);
 						}
 					}
-					if (j != 1) {
+					//Message about missing items.
+					if (!onMenu) {
 						System.out.println("Sorry, that item isn't on the menu. Please choose another.");
 					}
 				}
+				//Prints current bill item with subtotal
+				double subTotal = 0;				
 				System.out.println("Current bill:");
 				for (Product product : bill) {
 					System.out.println("$" + df.format(product.getPrice()) + "\t" + product.getName());
-				}
-				double subTotal = 0;
-				for (Product product : bill) {
-					subTotal += product.getPrice();
+					subTotal += product.getPrice();					
 				}
 				System.out.println("Subtotal: $" + df.format(subTotal));
-				// Bill.addProduct(menuList, menuList.indexOf(itemAdded));
+				// checks if the user is ready to cheackout and end program.
 				finished = Vali.checkYes(Vali.getString(read, "Are you ready to checkout?"));
 				if (finished) {
-					checkout();
+					checkout(bill);
 				}
 			} else if (menuChoice.equalsIgnoreCase("2") || menuChoice.equalsIgnoreCase("remove")) {
 				System.out.println("What item would you like to remove?");
@@ -90,10 +92,10 @@ public class GCMidTermApp {
 				bill = Bill.removeProduct(menuList, bill, itemRemoved);
 				finished = Vali.checkYes(Vali.getString(read, "Are you ready to checkout?"));
 				if (finished) {
-					checkout();
+					checkout(bill);
 				}
 			} else if (menuChoice.equalsIgnoreCase("3") || menuChoice.equalsIgnoreCase("checkout")) {
-				checkout();
+				checkout(bill);
 				finished = true;
 			} else if (menuChoice.equalsIgnoreCase("4") || menuChoice.equalsIgnoreCase("create")) {
 				create();
@@ -104,6 +106,9 @@ public class GCMidTermApp {
 			}
 		} while (!finished);
 
+		finished = Vali.checkYes(Vali.getString(read, "Do you want to take another order?"));
+		
+		}while (finished);
 		read.close();
 	}
 
@@ -121,7 +126,7 @@ public class GCMidTermApp {
 
 	// Still need to display the bill. Account for tips. Maybe an option to go back
 	// to the first menu.
-	private static void checkout() {
+	private static void checkout(List<Product> bill) {
 		// This variable will represent the customer's sub total, natch.
 		double subTotal = 0;
 		// iterates on all of the items placed on the customer's bill, pulling the
