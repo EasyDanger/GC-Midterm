@@ -3,77 +3,70 @@ package gcMidterm;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class GCMidTermApp {
-
+//Boolean used to control while looping.
 	public static boolean finished;
+	// bill variable lists items added to customer's invoice.
 	static List<Product> bill = new ArrayList<>();
+	// A scanner!!!
 	static Scanner read = new Scanner(System.in);
+	// Variable to store the location of the complete menu list.
 	public static Path filePath = Paths.get("Inventory.txt");
+	static DecimalFormat df = new DecimalFormat("#.00");
+	
 
 	public static void main(String[] arg) throws IOException {
-		
-		
-		
-		String header = "=============================== menu ==================================";
-		System.out.println(header);
-		
-		
-		
-		ProductFile.fileExist(filePath);
-		List<Product> menuList = ProductFile.read(filePath);
-			Product product2 = new Product();
-			product2.setName("Mocha");
-			product2.setPrice(3.75);
-			product2.setCategory("Drink");
-			product2.setDescription("Bittersweet mocha sauce, espresso and steamed whole milk topped with foam.");
-			
-		for (Product listProd: menuList) {
+//Displays complete menu
 
-			if (listProd == product2) {
-				System.out.println("this works!!");
-			}
-		}
-		
-		for (Product product : menuList) {
-			System.out.println(product);
-		}
-		
+		ProductFile.fileExist(filePath);
+
 //Additional things to consider:
 		// method to sort menu list by drinks or food.?
 		// coupon codes? (stolen form other group. Consider something else)
 		// Separate list of "specials"?
 		// gift cards?
-
+	//	df.setRoundingMode();
 		do {
-			System.out.println("1. Add\nAdd an item to the customer's order");
-			System.out.println("2. Remove\nRemove an item from the customer's order");
-			System.out.println("3. Checkout\nGo to checkout and review entire order");
-			System.out.println("4. Create\nCreate a new menu item");
+			String header = "\n\n=============================== menu ==================================";
+			System.out.println(header);
+			List<Product> menuList = ProductFile.read(filePath);
+			for (Product product : menuList) {
+				System.out.println(product);
+			}
+			System.out.println("\n1. Add						2.Remove"
+					+ "\nAdd an item to the customer's order		Remove an item from the customer's order");
+			System.out.println("\n3. Checkout					4. Create"
+					+ "\nGo to checkout and review entire order		Create a new menu item");
+//			System.out.println("\n3. Checkout\nGo to checkout and review entire order");
+//			System.out.println("\n4. Create\nCreate a new menu item");
 			String menuChoice = read.nextLine();
 			if (menuChoice.equalsIgnoreCase("1") || menuChoice.equalsIgnoreCase("add")) {
 				System.out.println("What item would you like to add?");
 				String itemAdded = read.nextLine();
-				
 				bill = Bill.addProduct(menuList, bill, itemAdded);
-			
 				System.out.println("This is the bill " + bill);
-			//	Bill.addProduct(menuList, menuList.indexOf(itemAdded));
+				for (Product product : bill) {
+					System.out.println("$" + df.format(product.getPrice()) + "\t" + product.getName());
+				}
+				
+				// Bill.addProduct(menuList, menuList.indexOf(itemAdded));
 				finished = Vali.checkYes(Vali.getString(read, "Are you ready to checkout?"));
-				 if (finished) {
-					 checkout();
-				 }
+				if (finished) {
+					checkout();
+				}
 			} else if (menuChoice.equalsIgnoreCase("2") || menuChoice.equalsIgnoreCase("remove")) {
 				System.out.println("What item would you like to remove?");
 				String itemRemoved = read.nextLine();
-				bill = Bill.removeProduct(menuList, bill, itemRemoved);				
+				bill = Bill.removeProduct(menuList, bill, itemRemoved);
 				finished = Vali.checkYes(Vali.getString(read, "Are you ready to checkout?"));
-				 if (finished) {
-					 checkout();
-				 }
+				if (finished) {
+					checkout();
+				}
 			} else if (menuChoice.equalsIgnoreCase("3") || menuChoice.equalsIgnoreCase("checkout")) {
 				checkout();
 				finished = true;
@@ -92,13 +85,13 @@ public class GCMidTermApp {
 	private static void create() throws IOException {
 		// Copy country creation method from previous lab, change names of variables and
 		// add the forth attribute. Account for the difference in types.
-		String newProductName = Vali.getString(read, "What item would you like to add?"); 	
+		String newProductName = Vali.getString(read, "What item would you like to add?");
 		Product newProduct = new Product();
-			newProduct.setName(newProductName);
-			newProduct.setCategory(Vali.getString(read, "Is " + newProductName + " a food or drink item?"));
-			newProduct.setPrice(Vali.getDouble(read, "How much does " + newProductName + " cost?"));
-			newProduct.setDescription(Vali.getString(read, "Describe " + newProductName + "."));
-			ProductFile.writeApp(filePath, newProduct);
+		newProduct.setName(newProductName);
+		newProduct.setCategory(Product.checkCategory(read, "Is " + newProductName + " a food or drink item?"));
+		newProduct.setPrice(Vali.getDouble(read, "How much does " + newProductName + " cost?"));
+		newProduct.setDescription(Vali.getString(read, "Describe " + newProductName + "."));
+		ProductFile.writeApp(filePath, newProduct);
 	}
 
 	// Still need to display the bill. Account for tips. Maybe an option to go back
@@ -123,10 +116,10 @@ public class GCMidTermApp {
 			if (menuChoice.equalsIgnoreCase("1") || menuChoice.equalsIgnoreCase("cash")) {
 				double change = Payment.getCash(total);
 				if (change > 0.0) {
-					System.out.println("The customer will receive $" + change + " back as change.");
+					System.out.println("The customer will receive $" + df.format(change) + " back as change.");
 					finished = true;
 				} else if (change < 0) {
-					System.out.println("The customer still owes $" + Math.abs(change));
+					System.out.println("The customer still owes $" + df.format(Math.abs(change)));
 					finished = false;
 				} else {
 					System.out.println("The customer will receive no change.");
@@ -152,12 +145,11 @@ public class GCMidTermApp {
 				Payment.getCheck();
 				System.out.println("Thank you ... for paying ... with a check ... I guess?");
 				finished = true;
+			} else if (menuChoice.equalsIgnoreCase("4") || menuChoice.equalsIgnoreCase("Apple Pay")) {
+				Payment.getApplePay();
+				System.out.println("Thank you for your purchase.");
+				finished = true;
 			}
-			else if (menuChoice.equalsIgnoreCase("4") || menuChoice.equalsIgnoreCase("Apple Pay")) {
-                Payment.getApplePay();
-                System.out.println("Thank you for your purchase.");
-                finished = true;
-            }
 			// loops if user screws up the menu.
 			else {
 				System.out.println("Sorry, we didn't get that. Let's try again.");
@@ -167,16 +159,4 @@ public class GCMidTermApp {
 
 	}
 
-	//private static void remove() {
-		// Should be able to simply call an item in the bill list and remove it.
-		// Must display bill list before that can happen.
-
-	//}
-
-	private static void add() {
-		// Should be able to simply call the index of an item in the pList list and add
-		// it to the bill list.
-		// Maybe display pList again?
-
-	}
 }

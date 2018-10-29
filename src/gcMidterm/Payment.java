@@ -1,15 +1,19 @@
 package gcMidterm;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class Payment {
+	static DecimalFormat df = new DecimalFormat("0.00");
+
 	private static Scanner scnr = new Scanner(System.in);
 
 	public static Double getCash(Double total) {
-
+		df.setRoundingMode(RoundingMode.CEILING);
 //		System.out.println("How much would you like to pay?($00.00)");
 //		String userAmount = scnr.nextLine();
-		double userPay = Vali.getDouble(scnr, "How much would you like to pay? Total: $" + total);
+		double userPay = Vali.getDouble(scnr, "How much would you like to pay? Total: $" + df.format(total));
 		double change = userPay - total;
 		return change;
 
