@@ -15,45 +15,52 @@ public class GCMidTermApp {
 	static List<Product> bill = new ArrayList<>();
 	// A scanner!!!
 	static Scanner read = new Scanner(System.in);
-	// Variable to store the location of the complete menu list.
+	// Variable to store the location of the complete menu list text file.
 	public static Path filePath = Paths.get("Inventory.txt");
-	static DecimalFormat df = new DecimalFormat("#.00");
-	
+	// Variable to store format for prices.
+	static DecimalFormat df = new DecimalFormat("0.00");
 
 	public static void main(String[] arg) throws IOException {
-//Displays complete menu
-
-		ProductFile.fileExist(filePath);
-
-//Additional things to consider:
-		// method to sort menu list by drinks or food.?
-		// coupon codes? (stolen form other group. Consider something else)
-		// Separate list of "specials"?
-		// gift cards?
-	//	df.setRoundingMode();
+		// Do-while loop for the menu.
 		do {
+			// Header for menu aesthetics.
 			String header = "\n\n=============================== menu ==================================";
 			System.out.println(header);
+			// Creates the menu from the text file.
 			List<Product> menuList = ProductFile.read(filePath);
+			// Calls the sorting method form the Sort class to keep menu organized.
+			menuList = Sort.sortByAlpha(menuList);
+			// Prints out the menu item by item.
+			int i = 0;
 			for (Product product : menuList) {
-				System.out.println(product);
+				i++;
+				System.out.println(i + ". " +  product);
 			}
+			// Menu display for user interfacing.
 			System.out.println("\n1. Add						2.Remove"
 					+ "\nAdd an item to the customer's order		Remove an item from the customer's order");
 			System.out.println("\n3. Checkout					4. Create"
 					+ "\nGo to checkout and review entire order		Create a new menu item");
-//			System.out.println("\n3. Checkout\nGo to checkout and review entire order");
-//			System.out.println("\n4. Create\nCreate a new menu item");
 			String menuChoice = read.nextLine();
 			if (menuChoice.equalsIgnoreCase("1") || menuChoice.equalsIgnoreCase("add")) {
+				int indexChoice;
 				System.out.println("What item would you like to add?");
 				String itemAdded = read.nextLine();
-				bill = Bill.addProduct(menuList, bill, itemAdded);
-				System.out.println("This is the bill " + bill);
+				if (itemAdded.matches("\\d+")) {
+					indexChoice = Integer.parseInt(itemAdded);
+					bill = Bill.addProduct(menuList, bill, menuList.get(indexChoice - 1).getName());
+				} else {
+					bill = Bill.addProduct(menuList, bill, itemAdded);
+				}
+				System.out.println("Current bill:");
 				for (Product product : bill) {
 					System.out.println("$" + df.format(product.getPrice()) + "\t" + product.getName());
 				}
-				
+				double subTotal = 0;
+				for (Product product : bill) {
+					subTotal += product.getPrice();
+				}
+				System.out.println("Subtotal: $" + df.format(subTotal));
 				// Bill.addProduct(menuList, menuList.indexOf(itemAdded));
 				finished = Vali.checkYes(Vali.getString(read, "Are you ready to checkout?"));
 				if (finished) {

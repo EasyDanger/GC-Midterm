@@ -67,21 +67,22 @@ public class Product implements Comparable<Product> {
 	public boolean checkName(String s) {
 		return name.equalsIgnoreCase(s);
 	}
-
-	public static String checkCategory(Scanner scnr, String prompt) {
-		System.out.print(prompt);
-		String cate;
-		do {
-			cate = scnr.nextLine();
-			if (cate.equalsIgnoreCase("food")) {
-				return "Food";
-			} else if (cate.equalsIgnoreCase("drink")) {
-				return "Drink";
-			} else {
-				System.out.println("Sorry, that's not a valid category. Please enter \"Food\" or \"Drink.\"");
-			}
-		} while (!cate.equalsIgnoreCase("food") && !cate.equalsIgnoreCase("drink"));
-
-		return null;
+public static String checkCategory(Scanner scnr, String prompt) {
+	System.out.print(prompt);
+	String cate;
+	do {
+	cate = scnr.nextLine();
+	if (cate.equalsIgnoreCase("food")) {
+		return "Food";
 	}
+	else if (cate.equalsIgnoreCase("drink")) {
+		return "Drink";
+	} else {
+		System.out.println("Sorry, that's not a valid category. Please enter \"Food\" or \"Drink.\"");
+	}
+	}
+	while (!cate.equalsIgnoreCase("food") && !cate.equalsIgnoreCase("drink"));
+	
+	return null;
+}
 }

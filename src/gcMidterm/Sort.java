@@ -10,12 +10,12 @@ public class Sort {
 		List<Product> drinks = new ArrayList<>();
 		List<Product> foods = new ArrayList<>();
 		for (Product drink : billUnForm) {
-			if (drink.getCategory().equals("drink")) {
+			if (drink.getCategory().equalsIgnoreCase("drink")) {
 				drinks.add(drink);
 			}
 		}
 		for (Product food : billUnForm) {
-			if (food.getCategory().equals("food")) {
+			if (food.getCategory().equalsIgnoreCase("food")) {
 				foods.add(food);
 			}
 		}
