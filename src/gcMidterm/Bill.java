@@ -13,6 +13,7 @@ public class Bill {
 		}
 		return bill;
 	}
+<<<<<<< HEAD
 
 	public static List<Product> removeProduct(List<Product> bill, String str) {
 
@@ -23,6 +24,21 @@ public class Bill {
 			}
 		}
 		return bill;
+=======
+	
+	public static List<Product> removeProduct(List<Product> products, List<Product> bill, String str) {
+		
+		for (Product listProd: products) {
+			if (listProd.checkName(str)) {
+				System.out.println("removed from list!");
+				bill.remove(listProd);
+			}
+		}
+		
+		
+		return bill;
+		
+>>>>>>> 9b69b17618c93290aaf1c0ce0c0771947043de5d
 	}
 
 }

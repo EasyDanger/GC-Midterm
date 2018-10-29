@@ -60,12 +60,8 @@ public class GCMidTermApp {
 				finished = Vali.checkYes(Vali.getString(read, "Would you like to add another item?"));
 			} else if (menuChoice.equalsIgnoreCase("2") || menuChoice.equalsIgnoreCase("remove")) {
 				System.out.println("What item would you like to remove?");
-				String removeItem = read.nextLine();
-				
-				bill = Bill.removeProduct(bill, removeItem);
-				
-				System.out.println("this is the new bill with removed thing " + bill);
-			//	Bill.removeProduct(menuList, removeItem);
+				String itemRemoved = read.nextLine();
+				bill = Bill.removeProduct(menuList, bill, itemRemoved);				
 				finished = Vali.checkYes(Vali.getString(read, "Would you like to add another item?"));
 			} else if (menuChoice.equalsIgnoreCase("3") || menuChoice.equalsIgnoreCase("checkout")) {
 				checkout();
