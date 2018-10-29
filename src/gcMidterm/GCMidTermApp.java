@@ -18,6 +18,11 @@ public class GCMidTermApp {
 		
 		
 		
+		String header = "=============================== menu ==================================";
+		System.out.println(header);
+		
+		
+		
 		ProductFile.fileExist(filePath);
 		List<Product> menuList = ProductFile.read(filePath);
 			Product product2 = new Product();
