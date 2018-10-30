@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Sort {
-
+//Originally was to be sort by alphebetical order, but organizing the menu by category made more sense.
 	public static List<Product> sortByAlpha(List<Product> billUnForm) {
 		List<Product> billForm = new ArrayList<>();
 		List<Product> drinks = new ArrayList<>();

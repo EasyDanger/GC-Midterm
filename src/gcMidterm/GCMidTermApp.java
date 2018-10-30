@@ -115,7 +115,10 @@ public class GCMidTermApp {
 				} else if (menuChoice.equalsIgnoreCase("2") || menuChoice.equalsIgnoreCase("remove")) {
 					System.out.println("What item would you like to remove?");
 					String itemRemoved = read.nextLine();
-					bill = Bill.removeProduct(menuList, bill, itemRemoved);
+					bill = Bill.removeProduct(bill, itemRemoved);
+					for (Product product : bill) {
+						System.out.println("$" + df.format(product.getPrice()) + "\t" + product.getName());
+					}
 					finished = Vali.checkYes(Vali.getString(read, "Are you ready to checkout?"));
 					if (finished) {
 						checkout(bill);

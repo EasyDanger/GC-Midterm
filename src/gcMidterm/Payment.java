@@ -3,12 +3,12 @@ package gcMidterm;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.Scanner;
-
+//Methods dealing with payment.
 public class Payment {
 	static DecimalFormat df = new DecimalFormat("0.00");
 
 	private static Scanner scnr = new Scanner(System.in);
-
+	//accepts cash
 	public static Double getCash(Double total) {
 		df.setRoundingMode(RoundingMode.CEILING);
 //		System.out.println("How much would you like to pay?($00.00)");
@@ -31,7 +31,7 @@ public class Payment {
 			return false;
 		}
 	}
-
+//returns true and "validates" based on proper formatting.
 	public static boolean getCredit() {
 
 		System.out.println("What is your cc number? (xxxx-xxxx-xxxx-xxxx");

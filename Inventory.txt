@@ -12,3 +12,4 @@ Chicken Caprese 	5.50	Food	Stacked with chicken, mozzarella, tomatoes, basil pes
 Blueberry Oatmeal 	3.75	Food	A blend of rolled and steel cut oats with blueberries and agave syrup.
 Cough Syrup	15.0	Drink	Cough syrup is a placeholder item I'm using to test the create item feature.
 Fancy Donut	3.0	Food	Fancy donut, is like a regular donut, but, you know, fancier.
+Black Eye Half Caf	5.5	Drink	Half decaf half reg coffee, two shots of expresso

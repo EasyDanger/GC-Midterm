@@ -8,7 +8,7 @@ import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
+//methods to deal with writing to and reading from the text file.
 public class ProductFile {
 	public static List<String> toList(List<Product> pList) {
 		List<String> lines = new ArrayList<>();
