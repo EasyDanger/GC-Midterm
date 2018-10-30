@@ -4,7 +4,9 @@ import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
+//Class defining the products we sell. Considered making an abstract class "Product" and subclasses "Drink" and "Food," but it seemed unnecessary.
 public class Product implements Comparable<Product> {
+	
 	private String name;
 	private String category;
 	private String description;
@@ -51,7 +53,7 @@ public class Product implements Comparable<Product> {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-
+//toString override uses the DecimalFormat format() method to ensure prices are displayed with the correct number of digits.
 	@Override
 	public String toString() {
 		DecimalFormat df = new DecimalFormat("0.00");
@@ -63,26 +65,25 @@ public class Product implements Comparable<Product> {
 		// TODO Auto-generated method stub
 		return name.compareTo(other.name);
 	}
-
+//Turned out to not be as useful as we originally thought.
 	public boolean checkName(String s) {
 		return name.equalsIgnoreCase(s);
 	}
-public static String checkCategory(Scanner scnr, String prompt) {
-	System.out.print(prompt);
-	String cate;
-	do {
-	cate = scnr.nextLine();
-	if (cate.equalsIgnoreCase("food")) {
-		return "Food";
+//allows program to check and force that the user is inputting valid categories for items added to menu. Adapted from getString matching Regex validation method.
+	public static String checkCategory(Scanner scnr, String prompt) {
+		System.out.print(prompt);
+		String cate;
+		do {
+			cate = scnr.nextLine();
+			if (cate.equalsIgnoreCase("food")) {
+				return "Food";
+			} else if (cate.equalsIgnoreCase("drink")) {
+				return "Drink";
+			} else {
+				System.out.println("Sorry, that's not a valid category. Please enter \"Food\" or \"Drink.\"");
+			}
+		} while (!cate.equalsIgnoreCase("food") && !cate.equalsIgnoreCase("drink"));
+
+		return null;
 	}
-	else if (cate.equalsIgnoreCase("drink")) {
-		return "Drink";
-	} else {
-		System.out.println("Sorry, that's not a valid category. Please enter \"Food\" or \"Drink.\"");
-	}
-	}
-	while (!cate.equalsIgnoreCase("food") && !cate.equalsIgnoreCase("drink"));
-	
-	return null;
-}
 }

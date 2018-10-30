@@ -71,8 +71,6 @@ public class GCMidTermApp {
 							for (int i1 = 0; i1 < x; i1++) {
 								bill = Bill.addProduct(menuList, bill, menuList.get(indexChoice - 1).getName());
 							}							
-							
-							bill = Bill.addProduct(menuList, bill, menuList.get(indexChoice - 1).getName());
 							onMenu = true;
 						} else {
 							onMenu = false;

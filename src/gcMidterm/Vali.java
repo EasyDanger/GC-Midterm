@@ -8,7 +8,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
-
+//Current iteration of this Validation class. Some things were adapted to other classes.
 public class Vali {
 
 	/**
